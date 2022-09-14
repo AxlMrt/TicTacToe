@@ -1,4 +1,11 @@
 const cells = Array.from(document.querySelectorAll("#board div"));
+const container = document.querySelector(".container");
+const start = document.querySelector(".startContainer");
+const startBtn = document.getElementById("start");
+const resetBtn = document.getElementById("reset");
+const oBtn = document.querySelector("span")
+const xBtn = document.querySelector(".btn_one")
+
 
 /*----- variables -----*/
 let board;
@@ -27,7 +34,6 @@ function gameBoard(){
         "", "", "", 
         "", "", "",
     ];
-    
     displayBoard();
 };
 
@@ -74,24 +80,38 @@ function displayBoard(){
     return winner ? winner : board.includes("") ? null : "T";
  };
 
- /*----- addEventListener -----*/
-const makeButton = (() => {
-    const resetBtn = document.getElementById("reset");
-    const startBtn = document.getElementById("start");
-    const container = document.querySelector(".container");
-    const start = document.querySelector(".startContainer");
+ function resetGame(){
+    gameBoard();
+    win = getWinner();
+    turn = "X";
+    displayBoard();
+ }
 
-    startBtn.addEventListener("click", () =>{
-        container.classList.remove("hidden")
-        gameBoard()
-        start.classList.add("hidden")
-    });
-   
-    resetBtn.addEventListener("click", () => {
-       gameBoard();
-        win = getWinner();
-        displayBoard();
-    });
-})();
- 
- 
+ /*----- addEventListener -----*/
+startBtn.addEventListener("click", () =>{
+    container.classList.remove("hidden");
+    gameBoard();
+    start.classList.add("hidden");
+    
+});
+    
+resetBtn.addEventListener("click", () => {
+    resetGame()
+});
+
+// Select the User (X or O)
+oBtn.addEventListener("click", () => {
+    document.querySelector(".btn_bg").style.marginLeft = "-74px";
+    xBtn.style.color = "#a6afbf";
+    oBtn.style.color = "white";
+    resetGame();
+    turn = "O";
+    displayBoard()
+})
+
+ xBtn.addEventListener("click", () => {
+    document.querySelector(".btn_bg").style.marginLeft = "-241px";
+    oBtn.style.color = "#a6afbf";
+    xBtn.style.color = "white";
+    resetGame()
+ })

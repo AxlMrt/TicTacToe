@@ -42,6 +42,9 @@ body{
 .btn_group{
     position: relative;
     width: 340px;
+    border: 2px solid black;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px 2px #64748b;
     padding: 10px 65px;
     margin-top: 100px;
     line-height: 40px;
@@ -63,6 +66,7 @@ body{
     font-weight: 700;
     color: #a6afbf;
     text-decoration: none;
+    transition: 1s;
 }
 
 .btn_bg{
@@ -71,33 +75,29 @@ body{
     width: 170px;
     position: absolute;
     top: 0;
-    margin-left: -244px;
-    border-radius: 5px;
+    margin-left: -241px;
+    border-radius: 10px;
     z-index: -1;
     transition: 1s;
 }
 
-span:hover + .btn_bg{
-    width: 170px;
-    margin-left: -74px;
-}
-
 .btn_two > span:hover{
-    color: white;
+    transition: 1s;
 }
 
 .btn_two:hover ~ .btn_one{
     color: #a6afbf;
 }
 
-span{
-    padding: 10px 0;
-    transition: 1s;
-}
-
 /*Tic Tac Toe*/
 .container{
     position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5em;
+
 }
 
 #board{
@@ -106,12 +106,11 @@ span{
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(3, 1fr);
-    
+    border: 3px solid black;
+    box-shadow: 0 2px 5px 2px #64748b;
 }
 
 .cell{
-    width: 100px;
-    height: 100px;
     border: 1px solid black;
     font-size: 5em;
     text-align: center;
