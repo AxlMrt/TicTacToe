@@ -79,11 +79,12 @@ const makeButton = (() => {
     const resetBtn = document.getElementById("reset");
     const startBtn = document.getElementById("start");
     const container = document.querySelector(".container");
+    const start = document.querySelector(".startContainer");
 
     startBtn.addEventListener("click", () =>{
         container.classList.remove("hidden")
         gameBoard()
-        startBtn.classList.add("hidden")
+        start.classList.add("hidden")
     });
    
     resetBtn.addEventListener("click", () => {

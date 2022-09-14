@@ -10,18 +10,25 @@ body{
     font-family: sans-serif;
 }
 
-.startBtn{
+.startContainer{
     position: absolute;
     width: 100%;
+    min-height: 100vh;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
+    gap: 1em;
 }
 
 #start{
     padding: 1em 2.5em 1em 2.5em;
-    font-size: 2em
+    border-radius: 10px;
+    font-size: 1.5em;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    cursor: pointer;
 }
 
 /*Slide button*/
@@ -88,7 +95,7 @@ span{
     transition: 1s;
 }
 
-/**/
+/*Tic Tac Toe*/
 .container{
     position: relative;
 }
