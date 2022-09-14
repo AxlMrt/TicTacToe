@@ -3,7 +3,6 @@ const cells = Array.from(document.querySelectorAll("#board div"));
 /*----- variables -----*/
 let board;
 let win;
-
 let turn = "X";
 
 /*----- constants -----*/
@@ -37,16 +36,12 @@ function displayBoard(){
     board.forEach(function(mark, index){
         //this sets the text content of the cell of the same position to the mark on the board.
             cells[index].textContent = mark;
-
-            
-         
      });
 
      const messages = document.querySelector("h2");
      messages.textContent = win === "T" ? `C'est une égalité, princesse !` : win ? `${win} a gagné la partie !` : `C'est au tour de ${turn}.`;
 
      document.getElementById("board").addEventListener("click", makeTurn)
-
      if (win){
         document.getElementById("board").removeEventListener("click", makeTurn);
      }
@@ -92,8 +87,9 @@ const makeButton = (() => {
     });
    
     resetBtn.addEventListener("click", () => {
-       turn = "X";
        gameBoard();
+        win = getWinner();
+        displayBoard();
     });
 })();
  
