@@ -35,27 +35,25 @@ function gameBoard(){
         "", "", "",
     ];
     displayBoard();
-
+    
 };
 
 function displayBoard(){  
     //take the board array
-    
     board.forEach(function(mark, index){
         //this sets the text content of the cell of the same position to the mark on the board.
-            cells[index].textContent = mark;
+        cells[index].textContent = mark;     
      });
 
      const messages = document.querySelector("h2");
      messages.textContent = win === "T" ? `C'est une égalité, princesse !` : win ? `${win} a gagné la partie !` : `C'est au tour de ${turn}.`;
 
      document.getElementById("board").addEventListener("click", makeTurn)
-    
-        
+     
      if (win){
         document.getElementById("board").removeEventListener("click", makeTurn);
      }
-     getComputerChoice()
+     
  }
 
  function makeTurn(event){
@@ -68,12 +66,11 @@ function displayBoard(){
     if (board[idx] === ""){
         board[idx] = turn;
         //Ternary here. <condition> ? <if condition is true, this> : <else if condition is false, this>
-        turn = turn === "X" ? "O" : "X";
+        turn = turn === "X" ? "O" : "X"; 
     }
     
     win = getWinner();
     displayBoard();
-    
  }
 
  function getWinner(){
@@ -86,16 +83,17 @@ function displayBoard(){
     return winner ? winner : board.includes("") ? null : "T";
  };
 
- function getComputerChoice(){
-    let random = Math.ceil(Math.random() * cells.length) - 1;
+/*  function getComputerChoice(){
+    let random = Math.floor(Math.random() * cells.length);
 
     while (cells[random].textContent !== ""){
         random = Math.floor(Math.random() * cells.length);
-      }
-      cells[random].textContent = "O";
-      console.log(random);        
+        
+    }  
 
- }
+    cells[random].textContent = "O";
+      console.log(random);        
+ } */
 
  function resetGame(){
     gameBoard();
